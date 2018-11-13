@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<title>Jogo Da Velha</title>
+	<style type="text/css">
+		html{
+			height: 100%;
+		}
+		body{
+			height: 100%;
+        	margin: 0;
+        	padding: 0;
+			background-color: #3baa9d;
+			color: white;
+			font-family: cooper black;
+			font-size: 24px;
+		}
+		h1{
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			text-align: center;
+		}
+		#espacoNomesJogadores{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+		h3{
+			margin-bottom: 4%;
+		}
+		.circulos{
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			background-color: white;
+		}
+		.xis{
+			position: absolute;
+			right: 100px;
+			top: 100px;
+			width: 100px;
+			height: 100px;
+		}
+		.xis:before, .xis:after {
+			position: absolute;
+			left: 105px;
+			content: ' ';
+			height: 90px;
+			width: 30px;
+			background-color: white;
+			border-radius: 12%;
+		}
+		.xis:before {
+			transform: rotate(45deg);
+		}
+		.xis:after {
+			transform: rotate(-45deg);
+		}
+
+	</style>
+</head>
+<body>
+	<h1>JOGO DA VELHA EM VUEJS</h1>
+	<div id="espacoNomesJogadores">
+		<div id="jogadorX">
+			<h3>X - {{ nomeJogadorX }}</h3>
+			<input v-model="nomeJogadorX" placeholder="Jogador 1">
+		</div>
+ 		<div id="jogadorO">
+			<h3>O - {{ nomeJogadorO }}</h3>
+			<input v-model="nomeJogadorO" placeholder="Jogador 2">
+		</div>
+	</div>
+	<div class="circulos">
+		
+	</div>
+	<div>
+		<a href="#" class="xis"></a>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		var jogadorX = new Vue({
+			el: '#jogadorX', 
+			data: {
+				nomeJogadorX: ''
+			}
+		})
+		var jogadorO = new Vue({
+			el: '#jogadorO', 
+			data: {
+				nomeJogadorO: ''
+			}
+		})
+		function desenharO() {
+
+		}
+		function desenharX() {
+
+		}
+	</script>
+</body>
+</html>
