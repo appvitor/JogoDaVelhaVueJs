@@ -77,77 +77,77 @@
 	</style>
 </head>
 <body>
-	<h1>Jogo Da Velha EM VueJS</h1>
-	<div id="espacoNomeJogadores">
-		<div id="jogadorX">
-			<h3>X - {{ nomeJogadorX }}</h3>
-			<input v-model="nomeJogadorX" placeholder="Jogador 1">
+	<div id=jogoDaVelha>
+		<h1>Jogo Da Velha EM VueJS</h1>
+		<div id="espacoNomeJogadores">
+			<div>
+				<h3>X - {{ nomeJogadorX }}</h3>
+				<input v-model="nomeJogadorX" placeholder="Jogador 1">
+			</div>
+	 		<div>
+				<h3>O - {{ nomeJogadorO }}</h3>
+				<input v-model="nomeJogadorO" placeholder="Jogador 2">
+			</div>
 		</div>
- 		<div id="jogadorO">
-			<h3>O - {{ nomeJogadorO }}</h3>
-			<input v-model="nomeJogadorO" placeholder="Jogador 2">
+		<div>
+			<h2>{{ nomeJogadorVencedor }} é o Vencedor!</h2>
 		</div>
-	</div>
-	<div>
-		<h2>{{ nomeJogador }} é o Vencedor!</h2>
-	</div>
-	<div id=espacoJogo>
-		<table>
-			<tr class="linhaA">
-				<td class="lateralA">
-					<a href="" class="jogoA1, xis"></a>
-				</td>
-				<td class="lateralB">
-					<a href="" class="jogoB1, circulos"></a>
-				</td>
-				<td>
-					<a href="" class="jogoC1, xis"></a>
-				</td>
-			</tr>
-			<tr class="linhaB">
-				<td class="lateralA">
-					<a href="" class="jogoA2, circulos"></a>
-				</td>
-				<td class="lateralB">
-					<a href="" class="jogoB2, xis"></a>
-				</td>
-				<td>
-					<a href="" class="jogoC2, circulos"></a>
-				</td>
-			</tr>
-			<tr class="linhaC">
-				<td class="lateralA">
-					<a href="" class="jogoA3, xis"></a>
-				</td>
-				<td class="lateralB">
-					<a href="" class="jogoB3, circulos"></a>
-				</td>
-				<td>
-					<a href="" class="jogoC3, xis"></a>
-				</td>
-			</tr>
-		</table>
+		<div id=espacoJogo>
+			<table>
+				<tr class="linhaA">
+					<td class="lateralA">
+						<a href="" class="jogoA1, xis"></a>
+					</td>
+					<td class="lateralB">
+						<a href="" class="jogoB1, circulos"></a>
+					</td>
+					<td>
+						<a href="" class="jogoC1, xis"></a>
+					</td>
+				</tr>
+				<tr class="linhaB">
+					<td class="lateralA">
+						<a href="" class="jogoA2, circulos"></a>
+					</td>
+					<td class="lateralB">
+						<a href="" class="jogoB2, xis"></a>
+					</td>
+					<td>
+						<a href="" class="jogoC2, circulos"></a>
+					</td>
+				</tr>
+				<tr class="linhaC">
+					<td class="lateralA">
+						<a href="" class="jogoA3, xis"></a>
+					</td>
+					<td class="lateralB">
+						<a href="" class="jogoB3, circulos"></a>
+					</td>
+					<td>
+						<a href="" class="jogoC3, xis"></a>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script type="text/javascript">
-		var jogadorX = new Vue ({
-			el: '#jogadorX', 
+		new Vue ({
+			el: '#jogoDaVelha', 
 			data: {
-				nomeJogadorX: ''
+				nomeJogadorX: '',
+				nomeJogadorO: '',
+				nomeJogadorVencedor: ''
+			},
+			methods : {
+				desenharO() {
+
+				},
+				desenharX() {
+
+				}	
 			}
 		})
-		var jogadorO = new Vue ({
-			el: '#jogadorO', 
-			data: {
-				nomeJogadorO: ''
-			}
-		})
-		function desenharO() {
-
-		}
-		function desenharX() {
-
-		}
 	</script>
 </body>
 </html>
