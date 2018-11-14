@@ -31,7 +31,7 @@
 		h2 {
 			margin: 1.5%;
 			text-align: center;
-			visibility: visible;
+			visibility: hidden;
 		}
 		#espacoJogo {
 			margin: 2%;
@@ -67,12 +67,22 @@
 			display: flex;
 			align-items: center;
 			padding: 10px;
+			min-height: 100px;
+			min-width: 100px;
 		}
 		.linhaA, .linhaB {
 			border-bottom: 6px solid white;
 		}
 		.lateralA, .lateralB {
 			border-right: 6px solid white;
+		}
+		a {
+			height: 100px;
+			width: 100px;
+		}
+		a:hover	{
+			cursor: pointer;
+			border: 1px solid white;
 		}
 	</style>
 </head>
@@ -82,49 +92,49 @@
 		<div id="espacoNomeJogadores">
 			<div>
 				<h3>X - {{ nomeJogadorX }}</h3>
-				<input v-model="nomeJogadorX" placeholder="Jogador 1">
+				<input v-model="nomeJogadorX" placeholder="Nome do Jogador X">
 			</div>
 	 		<div>
 				<h3>O - {{ nomeJogadorO }}</h3>
-				<input v-model="nomeJogadorO" placeholder="Jogador 2">
+				<input v-model="nomeJogadorO" placeholder="Nome do Jogador O">
 			</div>
 		</div>
 		<div>
-			<h2>{{ nomeJogadorVencedor }} é o Vencedor!</h2>
+			<h2>{{ resultadoPartida }} </h2>
 		</div>
 		<div id=espacoJogo>
 			<table>
 				<tr class="linhaA">
 					<td class="lateralA">
-						<a href="" class="jogoA1, xis"></a>
+						<a id="jogoA1" @click="jogada()"></a>
 					</td>
 					<td class="lateralB">
-						<a href="" class="jogoB1, circulos"></a>
+						<a id="jogoB1" @click="jogada()"></a>
 					</td>
 					<td>
-						<a href="" class="jogoC1, xis"></a>
+						<a id="jogoC1" @click="jogada()"></a>
 					</td>
 				</tr>
 				<tr class="linhaB">
 					<td class="lateralA">
-						<a href="" class="jogoA2, circulos"></a>
+						<a id="jogoA2" @click="jogada()"></a>
 					</td>
 					<td class="lateralB">
-						<a href="" class="jogoB2, xis"></a>
+						<a id="jogoB2" @click="jogada()"></a>
 					</td>
 					<td>
-						<a href="" class="jogoC2, circulos"></a>
+						<a id="jogoC2" @click="jogada()"></a>
 					</td>
 				</tr>
 				<tr class="linhaC">
 					<td class="lateralA">
-						<a href="" class="jogoA3, xis"></a>
+						<a id="jogoA3" @click="jogada()"></a>
 					</td>
 					<td class="lateralB">
-						<a href="" class="jogoB3, circulos"></a>
+						<a id="jogoB3" @click="jogada()"></a>
 					</td>
 					<td>
-						<a href="" class="jogoC3, xis"></a>
+						<a id="jogoC3" @click="jogada()"></a>
 					</td>
 				</tr>
 			</table>
@@ -137,9 +147,14 @@
 			data: {
 				nomeJogadorX: '',
 				nomeJogadorO: '',
-				nomeJogadorVencedor: ''
+				resultadoPartida: '',
+				jogadasRestantes: 9
 			},
 			methods : {
+				jogada() {
+					jogadasRestantes--;
+					console.log(jogadasRestantes);
+				},
 				desenharO() {
 
 				},
