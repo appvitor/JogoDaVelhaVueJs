@@ -20,7 +20,7 @@
 			margin: 1.5%;
 			text-align: center;
 		}
-		#espacoJogadores {
+		#espacoNomeJogadores {
 			display: flex;
 			flex-direction: row;
 			justify-content: space-around;
@@ -47,7 +47,7 @@
 		    height: 100px;
 		    position: relative;
 		}
-		.xis:after {
+		.xis:after, .xis:before {
 		    content: '';
 		    height: 100px;
 		    border-left: 30px solid white;
@@ -55,14 +55,8 @@
 		    transform: rotate(45deg);
 		    left: 35%;
 		}
-
 		.xis:before {
-		    content: '';
-		    height: 100px;
-		    border-left: 30px solid white;
-		    position: absolute;
 		    transform: rotate(-45deg);
-		    left: 35%;
 		}
 		table {
 			display: flex;
@@ -84,20 +78,19 @@
 </head>
 <body>
 	<h1>Jogo Da Velha EM VueJS</h1>
-	<div id="espacoJogadores">
+	<div id="espacoNomeJogadores">
 		<div id="jogadorX">
 			<h3>X - {{ nomeJogadorX }}</h3>
 			<input v-model="nomeJogadorX" placeholder="Jogador 1">
 		</div>
-
  		<div id="jogadorO">
 			<h3>O - {{ nomeJogadorO }}</h3>
 			<input v-model="nomeJogadorO" placeholder="Jogador 2">
 		</div>
 	</div>
 	<div>
-			<h2>{{ nomeJogador }} é o Vencedor!</h2>
-		</div>
+		<h2>{{ nomeJogador }} é o Vencedor!</h2>
+	</div>
 	<div id=espacoJogo>
 		<table>
 			<tr class="linhaA">
