@@ -70,17 +70,17 @@
 			min-height: 100px;
 			min-width: 100px;
 		}
-		.linhaA, .linhaB {
+		.linha1, .linha2 {
 			border-bottom: 6px solid white;
 		}
-		.lateralA, .lateralB {
+		.lateral1, .lateral2 {
 			border-right: 6px solid white;
 		}
-		a {
+		.casaNaoJogada {
 			height: 100px;
 			width: 100px;
 		}
-		a:hover	{
+		.casaNaoJogada:hover	{
 			cursor: pointer;
 			border: 1px solid white;
 		}
@@ -104,37 +104,37 @@
 		</div>
 		<div id=espacoJogo>
 			<table>
-				<tr class="linhaA">
-					<td class="lateralA">
-						<a id="jogoA1" @click="jogada()"></a>
+				<tr class="linha1">
+					<td class="lateral1">
+						<a id="casa1" class="casaNaoJogada" @click="jogada()" ></a>
 					</td>
-					<td class="lateralB">
-						<a id="jogoB1" @click="jogada()"></a>
+					<td class="lateral2">
+						<a id="casa2" class="casaNaoJogada" @click="jogada()"></a>
 					</td>
 					<td>
-						<a id="jogoC1" @click="jogada()"></a>
+						<a id="casa3" class="casaNaoJogada" @click="jogada()"></a>
 					</td>
 				</tr>
-				<tr class="linhaB">
-					<td class="lateralA">
-						<a id="jogoA2" @click="jogada()"></a>
+				<tr class="linha2">
+					<td class="lateral1">
+						<a id="casa4" class="casaNaoJogada" @click="jogada()"></a>
 					</td>
-					<td class="lateralB">
-						<a id="jogoB2" @click="jogada()"></a>
+					<td class="lateral2">
+						<a id="casa5" class="casaNaoJogada" @click="jogada()"></a>
 					</td>
 					<td>
-						<a id="jogoC2" @click="jogada()"></a>
+						<a id="casa6" class="casaNaoJogada" @click="jogada()"></a>
 					</td>
 				</tr>
-				<tr class="linhaC">
-					<td class="lateralA">
-						<a id="jogoA3" @click="jogada()"></a>
+				<tr>
+					<td class="lateral1">
+						<a id="casa7" class="casaNaoJogada" @click="jogada()"></a>
 					</td>
-					<td class="lateralB">
-						<a id="jogoB3" @click="jogada()"></a>
+					<td class="lateral2">
+						<a id="casa8" class="casaNaoJogada" @click="jogada()"></a>
 					</td>
 					<td>
-						<a id="jogoC3" @click="jogada()"></a>
+						<a id="casa9" class="casaNaoJogada" @click="jogada()"></a>
 					</td>
 				</tr>
 			</table>
@@ -152,15 +152,16 @@
 			},
 			methods : {
 				jogada() {
-					jogadasRestantes--;
-					console.log(jogadasRestantes);
-				},
-				desenharO() {
-
-				},
-				desenharX() {
-
-				}	
+					if(this.jogadasRestantes > 0 && class == "casaNaoJogada"){
+						this.jogadasRestantes--
+						
+					}
+					else if(this.jogadasRestantes == 0){
+						resultadoPartida: "é o Vencedor!"
+						h2.visibility: visible
+					}
+					console.log(this.jogadasRestantes)
+				}
 			}
 		})
 	</script>
