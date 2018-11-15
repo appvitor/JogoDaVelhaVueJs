@@ -152,6 +152,21 @@
 				casasJogadas: []
 			},
 			methods : {
+				analisarVencedor() {
+					if() {
+						resultadoPartida = nomeJogadorX + " é o Vencedor!"
+					}
+					else if() {
+						resultadoPartida = nomeJogadorO + " é o Vencedor!"
+					}
+					else if(jogadasRestantes == 0) {
+						resultadoPartida = "Deu Velha .-."
+					}
+					if(resultadoPartida != ''){
+						jogadasRestantes = 0
+
+					}	
+				}
 				jogada() {
 					if(this.jogadasRestantes > 0 && .classList.contains('casaNaoJogada')){
 						this.jogadasRestantes--
@@ -163,13 +178,9 @@
 							.classList.add('circulo')
 						}
 					}
-					if(this.jogadasRestantes == 0){
-						resultadoPartida = nomeJogadorX + " é o Vencedor!"
-						resultadoPartida = nomeJogadorO + " é o Vencedor!"
-						resultadoPartida = "Deu Velha .-."
-						console.log(resultadoPartida)
+					if(this.jogadasRestantes <= 5){
+						analisarVencedor()
 					}
-					console.log(this.jogadasRestantes)
 				}
 			}
 		})
