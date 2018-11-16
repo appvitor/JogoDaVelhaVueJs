@@ -106,35 +106,53 @@
 			<table>
 				<tr class="linha1">
 					<td class="lateral1">
-						<a id="casa1" class="casaNaoJogada" @click="jogada()" ></a>
+						<a class="casaNaoJogada" @click="jogada(1,1)" ></a>
+						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
+						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
 					</td>
 					<td class="lateral2">
-						<a id="casa2" class="casaNaoJogada" @click="jogada()"></a>
+						<a class="casaNaoJogada" @click="jogada(1,2)"></a>
+						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
+						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
 					</td>
 					<td>
-						<a id="casa3" class="casaNaoJogada" @click="jogada()"></a>
+						<a class="casaNaoJogada" @click="jogada(1,3)"></a>
+						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
+						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
 					</td>
 				</tr>
 				<tr class="linha2">
 					<td class="lateral1">
-						<a id="casa4" class="casaNaoJogada" @click="jogada()"></a>
+						<a class="casaNaoJogada" @click="jogada(2,1)"></a>
+						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
+						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
 					</td>
 					<td class="lateral2">
-						<a id="casa5" class="casaNaoJogada" @click="jogada()"></a>
+						<a class="casaNaoJogada" @click="jogada(2,2)"></a>
+						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
+						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
 					</td>
 					<td>
-						<a id="casa6" class="casaNaoJogada" @click="jogada()"></a>
+						<a class="casaNaoJogada" @click="jogada(2,3)"></a>
+						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
+						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
 					</td>
 				</tr>
 				<tr>
 					<td class="lateral1">
-						<a id="casa7" class="casaNaoJogada" @click="jogada()"></a>
+						<a class="casaNaoJogada" @click="jogada(3,1)"></a>
+						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
+						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
 					</td>
 					<td class="lateral2">
-						<a id="casa8" class="casaNaoJogada" @click="jogada()"></a>
+						<a class="casaNaoJogada" @click="jogada(3,2)"></a>
+						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
+						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
 					</td>
 					<td>
-						<a id="casa9" class="casaNaoJogada" @click="jogada()"></a>
+						<a class="casaNaoJogada" @click="jogada(3,3)"></a>
+						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
+						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
 					</td>
 				</tr>
 			</table>
@@ -149,35 +167,35 @@
 				nomeJogadorO: '',
 				resultadoPartida: '',
 				jogadasRestantes: 9,
-				casasJogadas: []
+				casas: [[]]
 			},
 			methods : {
 				analisarVencedor() {
-					if() {
-						resultadoPartida = nomeJogadorX + " é o Vencedor!"
-					}
-					else if() {
-						resultadoPartida = nomeJogadorO + " é o Vencedor!"
-					}
-					else if(jogadasRestantes == 0) {
-						resultadoPartida = "Deu Velha .-."
-					}
-					if(resultadoPartida != ''){
-						jogadasRestantes = 0
+					// if() {
+					// 	resultadoPartida = nomeJogadorX + " é o Vencedor!"
+					// }
+					// else if() {
+					// 	resultadoPartida = nomeJogadorO + " é o Vencedor!"
+					// }
+					// else if(jogadasRestantes == 0) {
+					// 	resultadoPartida = "Deu Velha .-."
+					// }
+					// if(resultadoPartida != ''){
+					// 	jogadasRestantes = 0
 
-					}	
-				}
-				jogada() {
-					if(this.jogadasRestantes > 0 && .classList.contains('casaNaoJogada')){
+					// }	
+				},
+				jogada(linha, coluna) {
+					if(this.jogadasRestantes > 0){
 						this.jogadasRestantes--
-						.classList.remove('casaNaoJogada')
 						if(jogadasRestantes % 2 != 0){
-							.classList.add('xis')
+							this.casas.push(linha, coluna, "x")
 						}
 						else {
-							.classList.add('circulo')
+							this.casas.push(linha, coluna, "o")
 						}
 					}
+					console.log(this.casas)
 					if(this.jogadasRestantes <= 5){
 						analisarVencedor()
 					}
