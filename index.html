@@ -106,68 +106,75 @@
 			<table>
 				<tr class="linha1">
 					<td class="lateral1">
-						<a class="casaNaoJogada" @click="jogada(1,1)" ></a>
-						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
-						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
+						<a v-if="casaContains(0,0,'')" class="casaNaoJogada" @click="jogada(0,0)" ></a>
+						<span v-if="casaContains(0,0,'x')" class="xis"></span>
+						<span v-if="casaContains(0,0,'o')" class="circulo"></span>
 					</td>
 					<td class="lateral2">
-						<a class="casaNaoJogada" @click="jogada(1,2)"></a>
-						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
-						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
+						<a v-if="casaContains(0,0,'')" class="casaNaoJogada" @click="jogada(0,1)"></a>
+						<span v-if="casaContains(0,1,'x')" class="xis"></span>
+						<span v-if="casaContains(0,1,'o')" class="circulo"></span>
 					</td>
 					<td>
-						<a class="casaNaoJogada" @click="jogada(1,3)"></a>
-						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
-						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
+						<a v-if="casaContains(0,0,'')" class="casaNaoJogada" @click="jogada(0,2)"></a>
+						<span v-if="casaContains(0,2,'x')" class="xis"></span>
+						<span v-if="casaContains(0,2,'o')" class="circulo"></span>
 					</td>
 				</tr>
 				<tr class="linha2">
 					<td class="lateral1">
-						<a class="casaNaoJogada" @click="jogada(2,1)"></a>
-						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
-						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
+						<a v-if="casaContains(0,0,'')" class="casaNaoJogada" @click="jogada(1,0)"></a>
+						<span v-if="casaContains(1,0,'x')" class="xis"></span>
+						<span v-if="casaContains(1,0,'o')" class="circulo"></span>
 					</td>
 					<td class="lateral2">
-						<a class="casaNaoJogada" @click="jogada(2,2)"></a>
-						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
-						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
+						<a v-if="casaContains(0,0,'')" class="casaNaoJogada" @click="jogada(1,1)"></a>
+						<span v-if="casaContains(1,1,'x')" class="xis"></span>
+						<span v-if="casaContains(1,1,'o')" class="circulo"></span>
 					</td>
 					<td>
-						<a class="casaNaoJogada" @click="jogada(2,3)"></a>
-						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
-						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
+						<a v-if="casaContains(0,0,'')" class="casaNaoJogada" @click="jogada(1,2)"></a>
+						<span v-if="casaContains(1,2,'x')" class="xis"></span>
+						<span v-if="casaContains(1,2,'o')" class="circulo"></span>
 					</td>
 				</tr>
 				<tr>
 					<td class="lateral1">
-						<a class="casaNaoJogada" @click="jogada(3,1)"></a>
-						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
-						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
+						<a v-if="casaContains(0,0,'')" class="casaNaoJogada" @click="jogada(2,0)"></a>
+						<span v-if="casaContains(2,0,'x')" class="xis"></span>
+						<span v-if="casaContains(2,0,'o')" class="circulo"></span>
 					</td>
 					<td class="lateral2">
-						<a class="casaNaoJogada" @click="jogada(3,2)"></a>
-						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
-						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
+						<a v-if="casaContains(0,0,'')" class="casaNaoJogada" @click="jogada(2,1)"></a>
+						<span v-if="casaContains(2,1,'x')" class="xis"></span>
+						<span v-if="casaContains(2,1,'o')" class="circulo"></span>
 					</td>
 					<td>
-						<a class="casaNaoJogada" @click="jogada(3,3)"></a>
-						<span v-if="casas.contains(1,1,'x')" class="xis"></span>
-						<span v-if="casas.contains(1,1,'o')" class="circulo"></span>
+						<a v-if="casaContains(0,0,'')" class="casaNaoJogada" @click="jogada(2,2)"></a>
+						<span v-if="casaContains(2,2,'x')" class="xis"></span>
+						<span v-if="casaContains(2,2,'o')" class="circulo"></span>
 					</td>
 				</tr>
 			</table>
+			{{ jogadasRestantes }}
 		</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script type="text/javascript">
 		new Vue ({
 			el: '#jogoDaVelha', 
-			data: {
-				nomeJogadorX: '',
-				nomeJogadorO: '',
-				resultadoPartida: '',
-				jogadasRestantes: 9,
-				casas: [[]]
+			data: function () {
+				return {
+					nomeJogadorX: '',
+					nomeJogadorO: '',
+					resultadoPartida: '',
+					jogadasRestantes: 9,
+					casas: [
+						['','',''],
+						['','',''],
+						['','','']
+					]
+				}
 			},
 			methods : {
 				analisarVencedor() {
@@ -187,18 +194,22 @@
 				},
 				jogada(linha, coluna) {
 					if(this.jogadasRestantes > 0){
-						this.jogadasRestantes--
-						if(jogadasRestantes % 2 != 0){
-							this.casas.push(linha, coluna, "x")
+						if(this.jogadasRestantes % 2 != 0){
+							this.casas[linha][coluna] = 'x'
 						}
 						else {
-							this.casas.push(linha, coluna, "o")
+							this.casas[linha][coluna] = 'o'
 						}
+						this.jogadasRestantes--
 					}
 					console.log(this.casas)
 					if(this.jogadasRestantes <= 5){
 						analisarVencedor()
 					}
+				},
+				casaContains(linha, coluna, valorEsperado) {
+					console.log(this.casas)
+					return this.casas[linha][coluna] === valorEsperado
 				}
 			}
 		})
